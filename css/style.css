@@ -1,0 +1,11 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+}
+
+.case-row{
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px 15px;
+}

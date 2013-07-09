@@ -1,0 +1,15 @@
+<h3>Basic List</h3>
+<ul>
+{{#each movie in info}}
+<li>{{movie.title}}</li>
+{{/each}}
+</ul>
+<div id="dynamic"></div>
+<h3>Movies</h3>
+  <ul>
+      {{#each movie in movies}}
+      {{#linkTo "movie" movie}}
+        <p> {{movie.year }}&nbsp{{movie.title}}</p>
+      {{/linkTo}}
+      {{/each}}
+  </ul>
