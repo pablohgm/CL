@@ -50,7 +50,7 @@
     {{outlet}}
   </script>
 
-  <script type="text/x-handlebars" data-template-name="application">
+  <script type="text/x-handlebars" data-template-name="dashboardDetail">
       <ul class="nav nav-tabs">
           <li class="active">
               <a href="#">My Cases</a>
@@ -58,7 +58,7 @@
           <li><a href="#/">Transactions</a></li>
       </ul>
       <div class="row-fluid">
-          {{#each tmpCase in cases}}
+          {{#each tmpCase in details}}
           <div class="span12 case-row">
               <div class="row-fluid">
                   <div class="span2">

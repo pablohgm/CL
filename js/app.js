@@ -2,6 +2,7 @@ App = Ember.Application.create();
 
 App.Router.map(function() {
     this.route("application", { path: "/" });
+    this.route("dashboardDetail", { path: "/dashboardDetail" });
 });
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -10,6 +11,15 @@ App.ApplicationRoute = Ember.Route.extend({
     },
     setupController: function(controller, model){
         controller.set('cases', model)
+    }
+});
+
+App.DashboardDetailRoute = Ember.Route.extend({
+    model: function() {
+        return cases;
+    },
+    setupController: function(controller, model){
+        controller.set('details', model)
     }
 });
 
