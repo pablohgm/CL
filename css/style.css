@@ -9,3 +9,20 @@ html, body {
     margin-bottom: 15px;
     padding: 15px 15px;
 }
+
+.case-base{
+    border-bottom: 1px solid gray;;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #444444;
+}
+
+.inner-circle{
+    padding: 50px;
+    color: #fffafa;
+    text-align: center;
+}

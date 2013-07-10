@@ -9,6 +9,8 @@
 </head>
 <body>
 
+
+
   <script type="text/x-handlebars" data-template-name="application">
       <ul class="nav nav-tabs">
           <li class="active">
@@ -46,6 +48,81 @@
           {{/each}}
       </div>
     {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="application">
+      <ul class="nav nav-tabs">
+          <li class="active">
+              <a href="#">My Cases</a>
+          </li>
+          <li><a href="#/">Transactions</a></li>
+      </ul>
+      <div class="row-fluid">
+          {{#each tmpCase in cases}}
+          <div class="span12 case-row">
+              <div class="row-fluid">
+                  <div class="span2">
+                      <div class="circle">
+                          <div class="inner-circle">
+                              <h3>{{tmpCase.summary.title}}</h3>
+                              <h4>{{tmpCase.summary.days}}</h4>
+                              <p>{{tmpCase.summary.description}}</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="span10">
+                      <div class="span12">
+                          <div class="row-fluid case-base">
+                              <div class="span8">
+                                  <p>Case #: {{tmpCase.caseNumber}}</p>
+                                  <h4>{{tmpCase.description}}</h4>
+                              </div>
+                              <div class="span3">
+                                  <div class="row-fluid">
+                                      <div class="span4">
+                                          <p>{{tmpCase.parties}}</p>
+                                          <p>Parties</p>
+                                      </div>
+                                      <div class="span4">
+                                          <p>{{tmpCase.documents}}</p>
+                                          <p>Documents</p>
+                                      </div>
+                                      <div class="span4">
+                                          <p>{{tmpCase.announcements}}</p>
+                                          <p>Announcements</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="span1"><a>Serve</a></div>
+                          </div>
+                      </div>
+                      <div class="span12">
+                          <div class="row-fluid">
+                              <div class="span6">
+                                  <h5>Recent Activity</h5>
+                                  <ul>
+                                      {{#each tmpRecentActivity in tmpCase.recentActivities}}
+                                      <li>{{tmpRecentActivity.date}}{{tmpRecentActivity.description}}</li>
+                                      {{/each}}
+                                  </ul>
+                              </div>
+                              <div class="span6">
+                                  <h5>Notifications</h5>
+                                  <ul>
+                                      <ul>
+                                          {{#each tmpNotification in tmpCase.notifications}}
+                                          <li>{{tmpNotification.description}}</li>
+                                          {{/each}}
+                                      </ul>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {{/each}}
+      </div>
   </script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
