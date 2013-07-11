@@ -18,7 +18,11 @@ html, body {
     border: 5px solid #444444;
     border-radius: 10px;
     margin: 0 0 15px;
-    padding: 10px 35px;
+}
+
+.case-square-footer{
+    border: solid #444444;
+    background-color: #444444;
 }
 
 .circle {
@@ -26,10 +30,20 @@ html, body {
     width: 200px;
     height: 200px;
     background-color: #444444;
+    margin: 10px 35px 10px;
 }
 
 .inner-circle{
     padding: 50px;
     color: #fffafa;
     text-align: center;
+}
+
+.inner-square{
+    border-right: 1px solid #fffafa;
+    color: #fffafa;
+}
+
+.img-user{
+    background-image: url('../images/user.png');
 }
