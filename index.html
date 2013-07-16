@@ -10,116 +10,118 @@
 <body>
 
 
+<!--dashboard list-->
+  <script type=" text/x-handlebars" data-template-name="application">
+      <ul class="nav nav-tabs">
+          <li class="active">
+              <a href="#">Dashboard List</a>
+          </li>
+          <li><a href="#/dashboardDetail">Dashboard Detail</a></li>
+          <li><a href="#/caseDetailsAnnoucebmml">Case Details Annoucebmml</a></li>
+      </ul>
+      <div class="row-fluid">
+          {{#each tmpCase in cases}}
+              <div class="span12 case-row">
+                  <div class="row-fluid">
+                      <div class="span8">
+                          <p>Case #: {{tmpCase.caseNumber}}</p>
+                          <h5>{{tmpCase.description}}</h5>
+                      </div>
+                      <div class="span3">
+                        <div class="row-fluid">
+                            <div class="span4">
+                                <p>{{tmpCase.parties}}</p>
+                                <p>Parties</p>
+                            </div>
+                            <div class="span4">
+                                <p>{{tmpCase.documents}}</p>
+                                <p>Documents</p>
+                            </div>
+                            <div class="span4">
+                                <p>{{tmpCase.announcements}}</p>
+                                <p>Announcements</p>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="span1"><a>Serve</a></div>
+                  </div>
+              </div>
+          {{/each}}
+      </div>
+    {{outlet}}
+  </script>
 
-  <!--<script type="text/x-handlebars" data-template-name="application">-->
-      <!--<ul class="nav nav-tabs">-->
-          <!--<li class="active">-->
-              <!--<a href="#">Dashboard List</a>-->
-          <!--</li>-->
-          <!--<li><a href="#/dashboardDetail">Dashboard Detail</a></li>-->
-          <!--<li><a href="#/caseDetailsAnnoucebmml">Case Details Annoucebmml</a></li>-->
-      <!--</ul>-->
-      <!--<div class="row-fluid">-->
-          <!--{{#each tmpCase in cases}}-->
-              <!--<div class="span12 case-row">-->
-                  <!--<div class="row-fluid">-->
-                      <!--<div class="span8">-->
-                          <!--<p>Case #: {{tmpCase.caseNumber}}</p>-->
-                          <!--<h5>{{tmpCase.description}}</h5>-->
-                      <!--</div>-->
-                      <!--<div class="span3">-->
-                        <!--<div class="row-fluid">-->
-                            <!--<div class="span4">-->
-                                <!--<p>{{tmpCase.parties}}</p>-->
-                                <!--<p>Parties</p>-->
-                            <!--</div>-->
-                            <!--<div class="span4">-->
-                                <!--<p>{{tmpCase.documents}}</p>-->
-                                <!--<p>Documents</p>-->
-                            <!--</div>-->
-                            <!--<div class="span4">-->
-                                <!--<p>{{tmpCase.announcements}}</p>-->
-                                <!--<p>Announcements</p>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                      <!--</div>-->
-                      <!--<div class="span1"><a>Serve</a></div>-->
-                  <!--</div>-->
-              <!--</div>-->
-          <!--{{/each}}-->
-      <!--</div>-->
-    <!--{{outlet}}-->
-  <!--</script>-->
+<!--dashboardDetail-->
+  <script type="text/x-handlebars" data-template-name="dashboardDetail">
+      <div class="row-fluid">
+          {{#each tmpCase in details}}
+          <div class="span12 case-row">
+              <div class="row-fluid">
+                  <div class="span2">
+                      <div class="circle">
+                          <div class="inner-circle">
+                              <h3>{{tmpCase.summary.title}}</h3>
+                              <h4>{{tmpCase.summary.days}}</h4>
+                              <p>{{tmpCase.summary.description}}</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="span10">
+                      <div class="span12">
+                          <div class="row-fluid case-base">
+                              <div class="span8">
+                                  <p>Case #: {{tmpCase.caseNumber}}</p>
+                                  <h4>{{tmpCase.description}}</h4>
+                              </div>
+                              <div class="span3">
+                                  <div class="row-fluid">
+                                      <div class="span4">
+                                          <p>{{tmpCase.parties}}</p>
+                                          <p>Parties</p>
+                                      </div>
+                                      <div class="span4">
+                                          <p>{{tmpCase.documents}}</p>
+                                          <p>Documents</p>
+                                      </div>
+                                      <div class="span4">
+                                          <p>{{tmpCase.announcements}}</p>
+                                          <p>Announcements</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="span1"><a>Serve</a></div>
+                          </div>
+                      </div>
+                      <div class="span12">
+                          <div class="row-fluid">
+                              <div class="span6">
+                                  <h5>Recent Activity</h5>
+                                  <ul>
+                                      {{#each tmpRecentActivity in tmpCase.recentActivities}}
+                                      <li>{{tmpRecentActivity.date}}{{tmpRecentActivity.description}}</li>
+                                      {{/each}}
+                                  </ul>
+                              </div>
+                              <div class="span6">
+                                  <h5>Notifications</h5>
+                                  <ul>
+                                      <ul>
+                                          {{#each tmpNotification in tmpCase.notifications}}
+                                          <li>{{tmpNotification.description}}</li>
+                                          {{/each}}
+                                      </ul>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {{/each}}
+      </div>
+  </script>
 
-  <!--<script type="text/x-handlebars" data-template-name="dashboardDetail">-->
-      <!--<div class="row-fluid">-->
-          <!--{{#each tmpCase in details}}-->
-          <!--<div class="span12 case-row">-->
-              <!--<div class="row-fluid">-->
-                  <!--<div class="span2">-->
-                      <!--<div class="circle">-->
-                          <!--<div class="inner-circle">-->
-                              <!--<h3>{{tmpCase.summary.title}}</h3>-->
-                              <!--<h4>{{tmpCase.summary.days}}</h4>-->
-                              <!--<p>{{tmpCase.summary.description}}</p>-->
-                          <!--</div>-->
-                      <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="span10">-->
-                      <!--<div class="span12">-->
-                          <!--<div class="row-fluid case-base">-->
-                              <!--<div class="span8">-->
-                                  <!--<p>Case #: {{tmpCase.caseNumber}}</p>-->
-                                  <!--<h4>{{tmpCase.description}}</h4>-->
-                              <!--</div>-->
-                              <!--<div class="span3">-->
-                                  <!--<div class="row-fluid">-->
-                                      <!--<div class="span4">-->
-                                          <!--<p>{{tmpCase.parties}}</p>-->
-                                          <!--<p>Parties</p>-->
-                                      <!--</div>-->
-                                      <!--<div class="span4">-->
-                                          <!--<p>{{tmpCase.documents}}</p>-->
-                                          <!--<p>Documents</p>-->
-                                      <!--</div>-->
-                                      <!--<div class="span4">-->
-                                          <!--<p>{{tmpCase.announcements}}</p>-->
-                                          <!--<p>Announcements</p>-->
-                                      <!--</div>-->
-                                  <!--</div>-->
-                              <!--</div>-->
-                              <!--<div class="span1"><a>Serve</a></div>-->
-                          <!--</div>-->
-                      <!--</div>-->
-                      <!--<div class="span12">-->
-                          <!--<div class="row-fluid">-->
-                              <!--<div class="span6">-->
-                                  <!--<h5>Recent Activity</h5>-->
-                                  <!--<ul>-->
-                                      <!--{{#each tmpRecentActivity in tmpCase.recentActivities}}-->
-                                      <!--<li>{{tmpRecentActivity.date}}{{tmpRecentActivity.description}}</li>-->
-                                      <!--{{/each}}-->
-                                  <!--</ul>-->
-                              <!--</div>-->
-                              <!--<div class="span6">-->
-                                  <!--<h5>Notifications</h5>-->
-                                  <!--<ul>-->
-                                      <!--<ul>-->
-                                          <!--{{#each tmpNotification in tmpCase.notifications}}-->
-                                          <!--<li>{{tmpNotification.description}}</li>-->
-                                          <!--{{/each}}-->
-                                      <!--</ul>-->
-                                  <!--</ul>-->
-                              <!--</div>-->
-                          <!--</div>-->
-                      <!--</div>-->
-                  <!--</div>-->
-              <!--</div>-->
-          <!--</div>-->
-          <!--{{/each}}-->
-      <!--</div>-->
-  <!--</script>-->
-
+<!--casedetails annoucebmml-->
   <script type="text/x-handlebars" data-template-name="application">
       <div class="row-fluid">
 
@@ -139,15 +141,15 @@
                                   </div>
                                   <div class="row-fluid case-square-footer">
                                       <div class="span3 inner-square">
-                                          <h4>36</h4>
+                                          <h4>{{tmpCase.parties}}</h4>
                                           <h6>PARTIES</h6>
                                       </div>
                                       <div class="span3 inner-square">
-                                          <h4>36</h4>
+                                          <h4>{{tmpCase.documents}}</h4>
                                           <h6>DOCS</h6>
                                       </div>
                                       <div class="span6 inner-square">
-                                          <h4>36</h4>
+                                          <h4>{{tmpCase.announcements}}</h4>
                                           <h6>ANNOUNCEMENTS</h6>
                                       </div>
                                   </div>
@@ -226,6 +228,189 @@
           </div>
       </div>
   </script>
+
+<!--docs details-->
+      <!--<script type="text/x-handlebars" data-template-name="application">-->
+        <!--<div class="row-fluid">-->
+          <!--<div class="span12">-->
+              <!--<div class="row-fluid">-->
+                  <!--<div class="span2">-->
+                      <!--<div class="row-fluid">-->
+                      <!--{{#each tmpCase in cases}}-->
+                          <!--<div class="span12">-->
+                              <!--<div class="case-square">-->
+                                  <!--<div class="circle">-->
+                                      <!--<div class="inner-circle">-->
+                                          <!--<h3>{{tmpCase.summary.title}}</h3>-->
+                                          <!--<h4>{{tmpCase.summary.days}}</h4>-->
+                                          <!--<p>{{tmpCase.summary.description}}</p>-->
+                                      <!--</div>-->
+                                  <!--</div>-->
+                                  <!--<div class="row-fluid case-square-footer">-->
+                                    <!--<div class="span3 inner-square">-->
+                                      <!--<h4>{{tmpCase.parties}}</h4>-->
+                                      <!--<h6>PARTIES</h6>-->
+                                    <!--</div>-->
+                                    <!--<div class="span3 inner-square">-->
+                                      <!--<h4>{{tmpCase.documents}}</h4>-->
+                                      <!--<h6>DOCS</h6>-->
+                                    <!--</div>-->
+                                    <!--<div class="span6 inner-square">-->
+                                      <!--<h4>{{tmpCase.announcements}}</h4>-->
+                                      <!--<h6>ANNOUNCEMENTS</h6>-->
+                                    <!--</div>-->
+                                  <!--</div>-->
+                              <!--</div>-->
+                          <!--</div>-->
+                      <!--{{/each}}-->
+                      <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="span10">-->
+                      <!--<div class="row-fluid">-->
+                          <!--<div class="span12">-->
+                              <!--<div class="row-fluid">-->
+                                  <!--<div class="span11">-->
+                                      <!--<ul class="breadcrumb">-->
+                                          <!--<li><a href="#">John vs Gray</a> <span class="divider">/</span></li>-->
+                                          <!--<li><a href="#">Documents</a> <span class="divider">/</span></li>-->
+                                          <!--<li class="active">Notices</li>-->
+                                      <!--</ul>-->
+                                  <!--</div>-->
+                                  <!--<div class="span1">-->
+                                      <!--<a>Serve</a>-->
+                                  <!--</div>-->
+                              <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="span12 case-row">-->
+                              <!--<div class="row-fluid">-->
+                                  <!--<div class="span12 case-base">-->
+                                      <!--<div class="row-fluid">-->
+                                          <!--<div class="span7">-->
+                                              <!--<h4>Details Documents</h4>-->
+                                          <!--</div>-->
+                                          <!--<div class="span2">-->
+                                              <!--<select></select>-->
+                                          <!--</div>-->
+                                          <!--<div class="span3">-->
+                                              <!--<form class="form-search">-->
+                                                  <!--<input type="text" class="input-medium search-query">-->
+                                                  <!--<button type="submit" class="btn">Search</button>-->
+                                              <!--</form>-->
+                                          <!--</div>-->
+                                      <!--</div>-->
+                                  <!--</div>-->
+                                  <!--<div class="span12">-->
+                                      <!--<div class="row-fluid">-->
+                                          <!--<div class="span4 tree-area">-->
+                                          <!--</div>-->
+                                          <!--<div class="span8  notice-panel">-->
+                                              <!--<div class="row-fluid">-->
+                                                  <!--<div class="span12 notices">-->
+                                                      <!--<h3>Notices</h3>-->
+                                                  <!--</div>-->
+                                                  <!--{{#each tmpNotice in caseSelected.notices}}-->
+                                                  <!--<div class="span12 notices">-->
+                                                      <!--<div class="row-fluid">-->
+                                                          <!--<div class="span1">-->
+                                                              <!--<i class="icon-file icon-file-custom"></i>-->
+                                                          <!--</div>-->
+                                                          <!--<div class="span11 case-row">-->
+                                                              <!--<div class="row-fluid">-->
+                                                                  <!--<div class="span12">-->
+                                                                      <!--<div class="row-fluid">-->
+                                                                          <!--<div class="span10"><h5>{{tmpNotice.name}}</h5></div>-->
+                                                                          <!--<div class="span2">-->
+                                                                              <!--<div class="btn-toolbar">-->
+                                                                                  <!--<div class="btn-group">-->
+                                                                                      <!--<a class="btn" href="#"><i class="icon-eye-open"></i></a>-->
+                                                                                      <!--<a class="btn" href="#"><i class="icon-file"></i></a>-->
+                                                                                      <!--<a class="btn" href="#"><i class="icon-download"></i></a>-->
+                                                                                  <!--</div>-->
+                                                                              <!--</div>-->
+                                                                          <!--</div>-->
+                                                                      <!--</div>-->
+                                                                  <!--</div>-->
+                                                                  <!--<div class="span12">-->
+                                                                      <!--<div class="row-fluid">-->
+                                                                        <!--<div class="span4 border-right"><p>Submitted by: {{tmpNotice.owner}}</p></div>-->
+                                                                        <!--<div class="span4 border-right"><p>Type: {{tmpNotice.type}}</p></div>-->
+                                                                        <!--<div class="span4"><a>document history</a></div>-->
+                                                                      <!--</div>-->
+                                                                  <!--</div>-->
+                                                                  <!--<div class="span12 border-top">-->
+                                                                      <!--<div class="row-fluid">-->
+                                                                          <!--<div class="span4"><p>Submitted: {{tmpNotice.summitDate}}</p></div>-->
+                                                                          <!--<div class="span4"><p>Filing Date: {{tmpNotice.filingDate}}</p></div>-->
+                                                                          <!--<div class="span4"><p>Hearing Date: {{tmpNotice.hearingDate}}</p></div>-->
+                                                                      <!--</div>-->
+                                                                  <!--</div>-->
+                                                              <!--</div>-->
+                                                          <!--</div>-->
+                                                      <!--</div>-->
+                                                  <!--</div>-->
+                                                  <!--{{/each}}-->
+                                              <!--</div>-->
+                                          <!--</div>-->
+                                      <!--</div>-->
+                                  <!--</div>-->
+                              <!--</div>-->
+                          <!--</div>-->
+                      <!--</div>-->
+                  <!--</div>-->
+              <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+    <!--</script>-->
+
+  <!-- transaction details -->
+  <!--<script type="text/x-handlebars" data-template-name="application">-->
+      <!--<div class="row-fluid">-->
+          <!--<div class="span12 transaction-header">-->
+              <!--<div class="row-fluid">-->
+                  <!--<div class="span7">-->
+                      <!--<h4>Transactions</h4>-->
+                  <!--</div>-->
+                  <!--<div class="span2">-->
+                      <!--<select></select>-->
+                  <!--</div>-->
+                  <!--<div class="span3">-->
+                      <!--<form class="form-search">-->
+                          <!--<input type="text" class="input-medium search-query">-->
+                          <!--<button type="submit" class="btn">Search</button>-->
+                      <!--</form>-->
+                  <!--</div>-->
+              <!--</div>-->
+          <!--</div>-->
+          <!--<div class="span12">-->
+              <!--<table class="table">-->
+              <!--</table>-->
+          <!--</div>-->
+      <!--</div>-->
+  <!--</script>-->
+
+<!-- main header -->
+<script type="text/x-handlebars" data-template-name="application">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="row-fluid">
+                <div class="span8">
+                    <h4>Transactions</h4>
+                </div>
+                <div class="span2">
+                    <form class="form-search">
+                        <input type="text" class="search-query" placeholder="Search">
+                    </form>
+                </div>
+                <div class="span1">
+                    <h3>A</h3>
+                </div>
+                <div class="span1">
+                    <h3>B</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0-rc.4.js"></script>

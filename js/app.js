@@ -108,7 +108,11 @@ var cases = [
                     caseNumber:'1234acbde',
                     caseCategory:'Civil Unlimited',
                     caseType:'Construction Defect',
-                    courtLocation:'Orange country central Justic center'}
+                    courtLocation:'Orange country central Justic center'},
+        notices:[
+            {id:'0', name:'John vs Gray Motion to Campel_10.12.12', description:'', owner:'Thomas Hunt', type:'Motion to campel', summitDate:'10/20/12', filingDate:'10/22/12', hearingDate:'10/22/12'},
+            {id:'1', name:'John vs Gray Motion to Campel_10.12.13', description:'', owner:'Silas Mithbaurer', type:'Petition for hearing', summitDate:'10/20/12', filingDate:'10/22/12', hearingDate:'10/22/12'},
+            {id:'2', name:'John vs Gray Motion to Campel_10.12.14', description:'', owner:'Silas Mithbaurer', type:'Motion to campel', summitDate:'10/22/12', filingDate:'10/22/12', hearingDate:'10/22/12'}]
     }
 
 ];;

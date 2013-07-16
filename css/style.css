@@ -8,6 +8,7 @@ html, body {
     border-radius: 10px;
     margin-bottom: 15px;
     padding: 15px 15px;
+    margin-left: 0px !important;
 }
 
 .case-base{
@@ -45,5 +46,40 @@ html, body {
 }
 
 .img-user{
-    background-image: url('../images/user.png');
+    background-image: url('../img/user.png');
+}
+
+.tree-area{
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.border-right{
+    border-right: 1px solid #808080;
+}
+
+.border-top{
+    border-top: 1px solid #808080;
+    margin-left: 0px !important;
+    margin-top: 5px;
+}
+
+.notice-panel{
+    border: 1px solid #808080;
+    margin-left: 0px !important;
+}
+
+.notices{
+    border-bottom: 1px solid #808080;
+    margin-left: 0px !important;
+    padding-top: 10px;
+}
+
+.icon-file-custom{
+    margin: 20px;
+}
+
+.transaction-header{
+    border-bottom: 1px solid #808080;
 }
